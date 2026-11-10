@@ -21,6 +21,14 @@ class UFO{
     ring.setAttribute("position",{x:x,y:y,z:z});
     ring.setAttribute("rotation",{x:90,y:90,z:90})
     this.obj.append(ring);
+
+    let beam = document.createElement("a-cone");
+    beam.setAttribute("radius",1);
+    beam.setAttribute("scale",{x:1.5, y:3.5, z:1.5});
+    beam.setAttribute("color","green");
+    beam.setAttribute("position",{x:x,y:y-1.5,z:z});
+    beam.setAttribute("opacity", 0.5);
+    this.obj.append(beam);
     
   }
 
@@ -28,6 +36,8 @@ class UFO{
     
     this.y -= this.dy;
     this.obj.setAttribute("position",{x:this.x, y:this.y, z:this.z})
-    
+    if(this.y < -39){
+      this.obj.setAttribute("position",{x:this.x,y:-39,z:this.z});
+    }
   }
 }

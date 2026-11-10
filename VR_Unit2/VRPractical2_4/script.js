@@ -11,8 +11,8 @@ window.addEventListener("DOMContentLoaded",function() {
   }
   loop();
 
-    for(let i = 0; i < 100; i++){
-    let ufos = new UFO(rnd(-50,50),rnd(20,50), rnd(-20,20));
+    for(let i = 0; i < 50; i++){
+    let ufos = new UFO(rnd(-30,30),rnd(40,50), rnd(-12.5,12.5));
     ufo.push(ufos);
   }
   loop();
@@ -28,10 +28,10 @@ function loop(){
 
    
     for(let ufos of ufo){
-     while(ufos.y > 0){ 
+    
       ufos.fall();
     
-   }
+   
   }
 }
   
