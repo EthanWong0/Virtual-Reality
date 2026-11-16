@@ -1,14 +1,25 @@
 let scene;
+let army = [];
 
-window.addEventListener("DOMContentLoaded",function() {
+window.addEventListener("DOMContentLoaded",function(){
   scene = document.querySelector("a-scene");
   
-  mech = document.getElementById("mech-1");
- 
+  mechTemplate = document.querySelector("#mech-1");
   loop();
-})
-function loop(){
 
+    for(let x = -10; x < 10; x += 2){
+    for(let z = -10; z < 10; z += 2){
+      let m = new mech(x, 1, z);
+      army.push(m);
+    }
+  }
+
+ for(m in army){
+  m.launch();
+ }
+
+function loop(){
+ 
 
   window.requestAnimationFrame( loop );
 }

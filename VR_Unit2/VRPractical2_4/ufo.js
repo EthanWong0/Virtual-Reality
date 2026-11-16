@@ -11,6 +11,7 @@ class UFO{
     base.setAttribute("radius",0.5);
     base.setAttribute("scale",{x:2,y:2,z:2});
     base.setAttribute("color","green");
+    base.setAttribute("opacity", 0.5);
     base.setAttribute("position",{x:x,y:y,z:z});
     this.obj.append( base );
 
@@ -27,7 +28,7 @@ class UFO{
     beam.setAttribute("scale",{x:1.5, y:3.5, z:1.5});
     beam.setAttribute("color","green");
     beam.setAttribute("position",{x:x,y:y-1.5,z:z});
-    beam.setAttribute("opacity", 0.5);
+    beam.setAttribute("opacity", 0.3);
     this.obj.append(beam);
     
   }
@@ -38,6 +39,7 @@ class UFO{
     this.obj.setAttribute("position",{x:this.x, y:this.y, z:this.z})
     if(this.y < -39){
       this.obj.setAttribute("position",{x:this.x,y:-39,z:this.z});
+      
     }
   }
 }
