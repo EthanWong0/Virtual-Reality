@@ -17,15 +17,13 @@ function loop(){
   
   orbit.a += orbit.da;
   orbit.object3D.rotation.x = orbit.a;
-    if(target.a < -90){
-    target.da = 0;
-  }
+  
 
   if(orbit.a > 1.6){
     orbit.da = 0;
   }
-
-  
+ 
+  target.setAttribute("rotation",{y:target.a,y:0,z:0})
 
   window.requestAnimationFrame( loop );
 }
