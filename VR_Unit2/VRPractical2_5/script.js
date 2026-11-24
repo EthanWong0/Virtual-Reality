@@ -11,18 +11,18 @@
 */
 
 let maze = [
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "x----------------xxxxx",
+  "x----------------xk--x",
+  "x--------xxxxsxxxxx--x",
+  "x--------x--------x--x",
+  "x--------x-xssxxxxx-xx",
+  "x-x-x----x-x--x------x",
+  "x-x-x---x-x--x-xxxx-x",
+  "x-x-xxx--x-x--x-x----x",
+  "x-x-xxx-xx-xxxx-xxxxxx",
+  "x----------------s-k--",
+  "xxxxxxxxxxxxxxxxxxxxxx",
 ];
 
 /* Challenge 2
@@ -34,6 +34,17 @@ let scene;
 window.addEventListener("DOMContentLoaded",function() {
   scene = document.querySelector("a-scene");
   for(let r = 0; r < maze.length; r++){
+    let row = maze[r];
+    let cols = row.split("");
+    for(let c = 0; c < cols.length; c++){
+      if(cols[c] == "x"){
+        new Wall(c,1,r)
+      }else if(cols[c] == "k"){
+        let key = new Key(c,2,r);
+        key.float();
+      }else if(cols[c] == "s"){
+        new Spike(c,2,r);
+      }
     /* Challenge 3
       Choose a technique to traverse the each character in the string.
     */ 
@@ -42,5 +53,6 @@ window.addEventListener("DOMContentLoaded",function() {
        in the maze.  Create an instance of the corresponding object.
     */
   }
+}
 
 })
